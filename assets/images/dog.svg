@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Pies">
+  <rect width="800" height="500" fill="#fff7ed"/>
+  <rect x="220" y="230" width="320" height="150" rx="70" fill="#b45309"/>
+  <circle cx="560" cy="240" r="78" fill="#b45309"/>
+  <ellipse cx="520" cy="200" rx="24" ry="42" fill="#78350f"/>
+  <ellipse cx="598" cy="200" rx="24" ry="42" fill="#78350f"/>
+  <circle cx="538" cy="240" r="8" fill="#0f172a"/>
+  <circle cx="582" cy="240" r="8" fill="#0f172a"/>
+  <ellipse cx="560" cy="266" rx="14" ry="10" fill="#0f172a"/>
+</svg>

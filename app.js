@@ -1,44 +1,55 @@
 const translations = {
   pl: {
     pageTitle: "Nauka czytania globalnego",
-    subtitle: "Kliknij duże słowo, aby zobaczyć obrazek i podpis.",
+    subtitle:
+      "Flow: kliknij słowo, aby pokazać obrazek i podpis. Kliknij ponownie, aby przejść do następnego słowa.",
     languageLabel: "Język:",
     words: {
-      car: "auto",
-      house: "dom",
-      panda: "panda",
-      sun: "słońce",
+      snake: "wąż",
+      sword: "miecz",
+      dragon: "smok",
+      dog: "pies",
+      cat: "kot",
+      turtle: "żółw",
     },
   },
   en: {
     pageTitle: "Global reading for kids",
-    subtitle: "Click a large word to show the image and caption.",
+    subtitle:
+      "Flow: click the word to reveal image + caption. Click again to move to the next word.",
     languageLabel: "Language:",
     words: {
-      car: "car",
-      house: "house",
-      panda: "panda",
-      sun: "sun",
+      snake: "snake",
+      sword: "sword",
+      dragon: "dragon",
+      dog: "dog",
+      cat: "cat",
+      turtle: "turtle",
     },
   },
   es: {
     pageTitle: "Lectura global para niños",
-    subtitle: "Haz clic en una palabra grande para ver la imagen y el texto.",
+    subtitle:
+      "Flujo: haz clic en la palabra para mostrar imagen y texto. Vuelve a hacer clic para la siguiente palabra.",
     languageLabel: "Idioma:",
     words: {
-      car: "coche",
-      house: "casa",
-      panda: "panda",
-      sun: "sol",
+      snake: "serpiente",
+      sword: "espada",
+      dragon: "dragón",
+      dog: "perro",
+      cat: "gato",
+      turtle: "tortuga",
     },
   },
 };
 
 const entries = [
-  { key: "car", imagePath: "assets/images/car.svg" },
-  { key: "house", imagePath: "assets/images/house.svg" },
-  { key: "panda", imagePath: "assets/images/panda.svg" },
-  { key: "sun", imagePath: "assets/images/sun.svg" },
+  { key: "snake", imagePath: "assets/images/snake.svg" },
+  { key: "sword", imagePath: "assets/images/sword.svg" },
+  { key: "dragon", imagePath: "assets/images/dragon.svg" },
+  { key: "dog", imagePath: "assets/images/dog.svg" },
+  { key: "cat", imagePath: "assets/images/cat.svg" },
+  { key: "turtle", imagePath: "assets/images/turtle.svg" },
 ];
 
 const languageSelect = document.querySelector("#language-select");
@@ -49,35 +60,68 @@ const wordListNode = document.querySelector("#word-list");
 const template = document.querySelector("#word-card-template");
 
 let currentLanguage = "pl";
+let shuffledEntries = [];
+let currentIndex = 0;
+let isFigureVisible = false;
 
-function renderWordCards() {
+function shuffle(source) {
+  const cloned = [...source];
+  for (let i = cloned.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cloned[i], cloned[j]] = [cloned[j], cloned[i]];
+  }
+  return cloned;
+}
+
+function prepareFlow() {
+  shuffledEntries = shuffle(entries);
+  currentIndex = 0;
+  isFigureVisible = false;
+}
+
+function moveToNextWord() {
+  if (currentIndex === shuffledEntries.length - 1) {
+    shuffledEntries = shuffle(entries);
+    currentIndex = 0;
+  } else {
+    currentIndex += 1;
+  }
+
+  isFigureVisible = false;
+  renderWordCard();
+}
+
+function renderWordCard() {
   wordListNode.innerHTML = "";
 
-  for (const entry of entries) {
-    const card = template.content.firstElementChild.cloneNode(true);
-    const button = card.querySelector(".word-button");
-    const figure = card.querySelector(".word-figure");
-    const image = card.querySelector(".word-image");
-    const caption = card.querySelector(".word-caption");
+  const entry = shuffledEntries[currentIndex];
+  const card = template.content.firstElementChild.cloneNode(true);
+  const button = card.querySelector(".word-button");
+  const figure = card.querySelector(".word-figure");
+  const image = card.querySelector(".word-image");
+  const caption = card.querySelector(".word-caption");
 
-    const localizedWord = translations[currentLanguage].words[entry.key];
+  const localizedWord = translations[currentLanguage].words[entry.key];
 
-    button.textContent = localizedWord;
-    button.setAttribute("aria-expanded", "false");
+  button.textContent = localizedWord;
+  button.setAttribute("aria-expanded", String(isFigureVisible));
 
-    image.src = entry.imagePath;
-    image.alt = localizedWord;
+  figure.hidden = !isFigureVisible;
+  image.src = entry.imagePath;
+  image.alt = localizedWord;
+  caption.textContent = localizedWord;
 
-    caption.textContent = localizedWord;
+  button.addEventListener("click", () => {
+    if (!isFigureVisible) {
+      isFigureVisible = true;
+      renderWordCard();
+      return;
+    }
 
-    button.addEventListener("click", () => {
-      const isVisible = !figure.hidden;
-      figure.hidden = isVisible;
-      button.setAttribute("aria-expanded", String(!isVisible));
-    });
+    moveToNextWord();
+  });
 
-    wordListNode.append(card);
-  }
+  wordListNode.append(card);
 }
 
 function renderInterface() {
@@ -89,7 +133,8 @@ function renderInterface() {
   subtitleNode.textContent = lang.subtitle;
   languageLabelNode.textContent = lang.languageLabel;
 
-  renderWordCards();
+  prepareFlow();
+  renderWordCard();
 }
 
 languageSelect.addEventListener("change", (event) => {
