@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nauka czytania globalnego</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1 id="title"></h1>
+        <p id="subtitle"></p>
+      </header>
+
+      <section class="controls" aria-label="Wybór języka">
+        <label for="language-select" id="language-label"></label>
+        <select id="language-select">
+          <option value="pl">Polski</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+        </select>
+      </section>
+
+      <section class="words" id="word-list" aria-label="Lista słów"></section>
+    </main>
+
+    <template id="word-card-template">
+      <article class="word-card">
+        <button class="word-button" type="button"></button>
+        <figure class="word-figure" hidden>
+          <img class="word-image" alt="" loading="lazy" />
+          <figcaption class="word-caption"></figcaption>
+        </figure>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>

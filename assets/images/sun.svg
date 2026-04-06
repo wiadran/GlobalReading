@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Słońce">
+  <rect width="320" height="180" fill="#dbeafe"/>
+  <circle cx="160" cy="90" r="38" fill="#facc15"/>
+  <g stroke="#f59e0b" stroke-width="6" stroke-linecap="round">
+    <line x1="160" y1="24" x2="160" y2="44"/>
+    <line x1="160" y1="136" x2="160" y2="156"/>
+    <line x1="94" y1="90" x2="114" y2="90"/>
+    <line x1="206" y1="90" x2="226" y2="90"/>
+    <line x1="114" y1="44" x2="128" y2="58"/>
+    <line x1="192" y1="122" x2="206" y2="136"/>
+    <line x1="114" y1="136" x2="128" y2="122"/>
+    <line x1="192" y1="58" x2="206" y2="44"/>
+  </g>
+</svg>
