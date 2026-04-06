@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Wąż">
+  <rect width="800" height="500" fill="#ecfeff"/>
+  <path d="M120 300C170 200 260 190 310 240C360 290 460 290 500 250C560 190 650 200 690 280" fill="none" stroke="#16a34a" stroke-width="42" stroke-linecap="round"/>
+  <circle cx="690" cy="280" r="36" fill="#16a34a"/>
+  <circle cx="700" cy="270" r="6" fill="#0f172a"/>
+  <circle cx="682" cy="270" r="6" fill="#0f172a"/>
+  <path d="M690 294l14 12" stroke="#ef4444" stroke-width="6" stroke-linecap="round"/>
+</svg>

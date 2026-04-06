@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Smok">
+  <rect width="800" height="500" fill="#eef2ff"/>
+  <ellipse cx="380" cy="300" rx="210" ry="110" fill="#22c55e"/>
+  <circle cx="590" cy="250" r="80" fill="#22c55e"/>
+  <polygon points="540,190 560,140 585,190" fill="#16a34a"/>
+  <polygon points="595,185 625,130 645,190" fill="#16a34a"/>
+  <circle cx="616" cy="246" r="8" fill="#0f172a"/>
+  <path d="M635 280q35 10 50 35" stroke="#ef4444" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <polygon points="210,240 130,160 190,290" fill="#16a34a"/>
+  <polygon points="300,220 240,130 280,280" fill="#16a34a"/>
+</svg>
