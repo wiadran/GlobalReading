@@ -11,6 +11,10 @@ const translations = {
       dog: "pies",
       cat: "kot",
       turtle: "żółw",
+      house: "dom",
+      sun: "słońce",
+      car: "samochód",
+      panda: "panda",
     },
   },
   en: {
@@ -25,6 +29,10 @@ const translations = {
       dog: "dog",
       cat: "cat",
       turtle: "turtle",
+      house: "house",
+      sun: "sun",
+      car: "car",
+      panda: "panda",
     },
   },
   es: {
@@ -39,6 +47,10 @@ const translations = {
       dog: "perro",
       cat: "gato",
       turtle: "tortuga",
+      house: "casa",
+      sun: "sol",
+      car: "coche",
+      panda: "panda",
     },
   },
 };
@@ -50,6 +62,10 @@ const entries = [
   { key: "dog", imagePath: "assets/images/dog.svg" },
   { key: "cat", imagePath: "assets/images/cat.svg" },
   { key: "turtle", imagePath: "assets/images/turtle.svg" },
+  { key: "house", imagePath: "assets/images/house.svg" },
+  { key: "sun", imagePath: "assets/images/sun.svg" },
+  { key: "car", imagePath: "assets/images/car.svg" },
+  { key: "panda", imagePath: "assets/images/panda.svg" },
 ];
 
 const languageSelect = document.querySelector("#language-select");
@@ -60,33 +76,29 @@ const wordListNode = document.querySelector("#word-list");
 const template = document.querySelector("#word-card-template");
 
 let currentLanguage = "pl";
-let shuffledEntries = [];
-let currentIndex = 0;
+let currentEntry = null;
 let isFigureVisible = false;
-
-function shuffle(source) {
-  const cloned = [...source];
-  for (let i = cloned.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [cloned[i], cloned[j]] = [cloned[j], cloned[i]];
-  }
-  return cloned;
-}
+let unseenEntries = [];
 
 function prepareFlow() {
-  shuffledEntries = shuffle(entries);
-  currentIndex = 0;
+  unseenEntries = [...entries];
+  currentEntry = null;
   isFigureVisible = false;
+  drawNextEntry();
+}
+
+function drawNextEntry() {
+  if (unseenEntries.length === 0) {
+    unseenEntries = [...entries];
+  }
+
+  const randomIndex = Math.floor(Math.random() * unseenEntries.length);
+  const [nextEntry] = unseenEntries.splice(randomIndex, 1);
+  currentEntry = nextEntry;
 }
 
 function moveToNextWord() {
-  if (currentIndex === shuffledEntries.length - 1) {
-    shuffledEntries = shuffle(entries);
-    currentIndex = 0;
-  } else {
-    currentIndex += 1;
-  }
-
+  drawNextEntry();
   isFigureVisible = false;
   renderWordCard();
 }
@@ -94,7 +106,7 @@ function moveToNextWord() {
 function renderWordCard() {
   wordListNode.innerHTML = "";
 
-  const entry = shuffledEntries[currentIndex];
+  const entry = currentEntry;
   const card = template.content.firstElementChild.cloneNode(true);
   const button = card.querySelector(".word-button");
   const figure = card.querySelector(".word-figure");
