@@ -136,6 +136,12 @@ const translations = {
 };
 
 const entries = [
+  { key: "scorpion", imagePath: "assets/images/scorpion.svg", categories: ["animals"] },
+  { key: "moon", imagePath: "assets/images/moon.svg", categories: ["objects"] },
+  { key: "banana", imagePath: "assets/images/banana.svg", categories: ["objects"] },
+  { key: "apple", imagePath: "assets/images/apple.svg", categories: ["objects"] },
+  { key: "tree", imagePath: "assets/images/tree.svg", categories: ["objects"] },
+  { key: "ghost", imagePath: "assets/images/ghost.svg", categories: ["people"] },
   { key: "snake", imagePath: "assets/images/snake.svg", categories: ["animals"] },
   { key: "sword", imagePath: "assets/images/sword.svg", categories: ["objects"] },
   { key: "dragon", imagePath: "assets/images/dragon.svg", categories: ["animals"] },
@@ -158,23 +164,6 @@ const entries = [
   { key: "yellow", imagePath: "assets/images/yellow.svg", categories: ["colors"] },
   { key: "black", imagePath: "assets/images/black.svg", categories: ["colors"] },
   { key: "white", imagePath: "assets/images/white.svg", categories: ["colors"] },
-
-  { key: "scorpion", imagePath: "assets/images/scorpion.svg" },
-  { key: "moon", imagePath: "assets/images/moon.svg" },
-  { key: "banana", imagePath: "assets/images/banana.svg" },
-  { key: "apple", imagePath: "assets/images/apple.svg" },
-  { key: "tree", imagePath: "assets/images/tree.svg" },
-  { key: "ghost", imagePath: "assets/images/ghost.svg" },
-  { key: "snake", imagePath: "assets/images/snake.svg" },
-  { key: "sword", imagePath: "assets/images/sword.svg" },
-  { key: "dragon", imagePath: "assets/images/dragon.svg" },
-  { key: "dog", imagePath: "assets/images/dog.svg" },
-  { key: "cat", imagePath: "assets/images/cat.svg" },
-  { key: "turtle", imagePath: "assets/images/turtle.svg" },
-  { key: "house", imagePath: "assets/images/house.svg" },
-  { key: "sun", imagePath: "assets/images/sun.svg" },
-  { key: "car", imagePath: "assets/images/car.svg" },
-  { key: "panda", imagePath: "assets/images/panda.svg" },
 ];
 
 const languageSelect = document.querySelector("#language-select");
