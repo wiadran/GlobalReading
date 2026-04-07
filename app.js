@@ -117,32 +117,7 @@ const translations = {
   },
 };
 
-const fallbackCategoriesByKey = {
-  snake: ["animals"],
-  sword: ["objects"],
-  dragon: ["animals"],
-  dog: ["animals"],
-  cat: ["animals"],
-  turtle: ["animals"],
-  house: ["objects"],
-  sun: ["objects"],
-  car: ["objects"],
-  panda: ["animals"],
-  shield: ["objects"],
-  ball: ["objects"],
-  guitar: ["objects"],
-  lion: ["animals"],
-  spider: ["animals"],
-  pirate: ["people"],
-  red: ["colors"],
-  blue: ["colors"],
-  green: ["colors"],
-  yellow: ["colors"],
-  black: ["colors"],
-  white: ["colors"],
-};
-
-const sourceEntries = [
+const entries = [
   { key: "snake", imagePath: "assets/images/snake.svg", categories: ["animals"] },
   { key: "sword", imagePath: "assets/images/sword.svg", categories: ["objects"] },
   { key: "dragon", imagePath: "assets/images/dragon.svg", categories: ["animals"] },
@@ -166,43 +141,6 @@ const sourceEntries = [
   { key: "black", imagePath: "assets/images/black.svg", categories: ["colors"] },
   { key: "white", imagePath: "assets/images/white.svg", categories: ["colors"] },
 ];
-
-function sanitizeEntries(rawEntries) {
-  const entryMap = new Map();
-
-  rawEntries.forEach((entry) => {
-    const validCategories = new Set(
-      (entry.categories || []).filter((category) => categories.includes(category)),
-    );
-
-    (fallbackCategoriesByKey[entry.key] || []).forEach((category) => {
-      validCategories.add(category);
-    });
-
-    if (validCategories.size === 0) {
-      return;
-    }
-
-    if (!entryMap.has(entry.key)) {
-      entryMap.set(entry.key, {
-        key: entry.key,
-        imagePath: entry.imagePath,
-        categories: [...validCategories],
-      });
-      return;
-    }
-
-    const existingEntry = entryMap.get(entry.key);
-    existingEntry.categories = [...new Set([...existingEntry.categories, ...validCategories])];
-    if (!existingEntry.imagePath && entry.imagePath) {
-      existingEntry.imagePath = entry.imagePath;
-    }
-  });
-
-  return [...entryMap.values()];
-}
-
-const entries = sanitizeEntries(sourceEntries);
 
 const languageSelect = document.querySelector("#language-select");
 const titleNode = document.querySelector("#title");
