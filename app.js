@@ -23,7 +23,7 @@ const translations = {
       turtle: "żółw",
       house: "dom",
       sun: "słońce",
-      car: "samochód",
+      car: "auto",
       panda: "panda",
       shield: "tarcza",
       ball: "piłka",
