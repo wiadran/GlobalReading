@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Doctor</title>
+  <desc id="desc">Simple doctor icon.</desc>
+  <rect width="512" height="512" rx="48" fill="#eefbff"/>
+  <circle cx="256" cy="174" r="82" fill="#ffd7b3"/>
+  <rect x="148" y="260" width="216" height="164" rx="28" fill="#ffffff"/>
+  <rect x="236" y="300" width="40" height="94" rx="8" fill="#ff4d4d"/>
+  <rect x="209" y="327" width="94" height="40" rx="8" fill="#ff4d4d"/>
+  <rect x="188" y="118" width="136" height="28" rx="14" fill="#4d6b8a"/>
+</svg>

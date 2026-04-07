@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Policeman</title>
+  <desc id="desc">Simple policeman icon.</desc>
+  <rect width="512" height="512" rx="48" fill="#e8f1ff"/>
+  <circle cx="256" cy="180" r="84" fill="#ffd7b3"/>
+  <rect x="170" y="108" width="172" height="48" rx="16" fill="#1f3b8a"/>
+  <rect x="144" y="270" width="224" height="150" rx="28" fill="#2f54c0"/>
+  <rect x="210" y="305" width="92" height="38" rx="10" fill="#f7d14a"/>
+</svg>
