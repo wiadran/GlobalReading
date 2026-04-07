@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Jabłko">
+  <rect width="320" height="180" fill="#dcfce7"/>
+  <path d="M160 48c8-16 19-20 29-20" stroke="#854d0e" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <ellipse cx="178" cy="43" rx="14" ry="8" fill="#4d7c0f" transform="rotate(-20 178 43)"/>
+  <circle cx="140" cy="102" r="35" fill="#dc2626"/>
+  <circle cx="178" cy="102" r="35" fill="#ef4444"/>
+  <rect x="130" y="106" width="60" height="30" fill="#ef4444"/>
+</svg>

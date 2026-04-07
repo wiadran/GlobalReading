@@ -5,6 +5,12 @@ const translations = {
       "Flow: kliknij słowo, aby pokazać obrazek i podpis. Kliknij ponownie, aby przejść do następnego słowa.",
     languageLabel: "Język:",
     words: {
+      scorpion: "skorpion",
+      moon: "księżyc",
+      banana: "banan",
+      apple: "jabłko",
+      tree: "drzewo",
+      ghost: "duch",
       snake: "wąż",
       sword: "miecz",
       dragon: "smok",
@@ -23,6 +29,12 @@ const translations = {
       "Flow: click the word to reveal image + caption. Click again to move to the next word.",
     languageLabel: "Language:",
     words: {
+      scorpion: "scorpion",
+      moon: "moon",
+      banana: "banana",
+      apple: "apple",
+      tree: "tree",
+      ghost: "ghost",
       snake: "snake",
       sword: "sword",
       dragon: "dragon",
@@ -41,6 +53,12 @@ const translations = {
       "Flujo: haz clic en la palabra para mostrar imagen y texto. Vuelve a hacer clic para la siguiente palabra.",
     languageLabel: "Idioma:",
     words: {
+      scorpion: "escorpión",
+      moon: "luna",
+      banana: "plátano",
+      apple: "manzana",
+      tree: "árbol",
+      ghost: "fantasma",
       snake: "serpiente",
       sword: "espada",
       dragon: "dragón",
@@ -56,6 +74,12 @@ const translations = {
 };
 
 const entries = [
+  { key: "scorpion", imagePath: "assets/images/scorpion.svg" },
+  { key: "moon", imagePath: "assets/images/moon.svg" },
+  { key: "banana", imagePath: "assets/images/banana.svg" },
+  { key: "apple", imagePath: "assets/images/apple.svg" },
+  { key: "tree", imagePath: "assets/images/tree.svg" },
+  { key: "ghost", imagePath: "assets/images/ghost.svg" },
   { key: "snake", imagePath: "assets/images/snake.svg" },
   { key: "sword", imagePath: "assets/images/sword.svg" },
   { key: "dragon", imagePath: "assets/images/dragon.svg" },
