@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Pirat">
+  <rect width="800" height="500" fill="#f8fafc"/>
+  <circle cx="400" cy="250" r="120" fill="#f2c79c"/>
+  <path d="M280 210 Q400 120 520 210 V180 Q400 90 280 180 Z" fill="#111827"/>
+  <rect x="320" y="200" width="160" height="26" rx="10" fill="#7f1d1d"/>
+  <circle cx="360" cy="250" r="13" fill="#111827"/>
+  <rect x="412" y="236" width="54" height="28" rx="8" fill="#111827"/>
+  <circle cx="500" cy="250" r="13" fill="#111827"/>
+  <path d="M350 310 Q400 340 450 310" stroke="#7c2d12" stroke-width="8" fill="none"/>
+</svg>
