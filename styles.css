@@ -33,10 +33,15 @@ body {
 }
 
 .controls {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.control-group {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin: 1rem 0 1.5rem;
 }
 
 select {
@@ -45,6 +50,32 @@ select {
   padding: 0.5rem 0.75rem;
   background: var(--surface);
   color: var(--text);
+}
+
+.category-fieldset {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  background: var(--surface);
+}
+
+.category-fieldset legend {
+  font-weight: 700;
+  padding: 0 0.35rem;
+}
+
+.categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.category-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .words {

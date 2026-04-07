@@ -1,9 +1,13 @@
+const categories = ["objects", "animals", "people", "colors"];
+
 const translations = {
   pl: {
     pageTitle: "Nauka czytania globalnego",
     subtitle:
       "Flow: kliknij słowo, aby pokazać obrazek i podpis. Kliknij ponownie, aby przejść do następnego słowa.",
     languageLabel: "Język:",
+    categoryLabel: "Kategorie:",
+    allCategoriesLabel: "Wszystkie",
     words: {
       scorpion: "skorpion",
       moon: "księżyc",
@@ -21,6 +25,24 @@ const translations = {
       sun: "słońce",
       car: "samochód",
       panda: "panda",
+      shield: "tarcza",
+      ball: "piłka",
+      guitar: "gitara",
+      lion: "lew",
+      spider: "pająk",
+      pirate: "pirat",
+      red: "czerwony",
+      blue: "niebieski",
+      green: "zielony",
+      yellow: "żółty",
+      black: "czarny",
+      white: "biały",
+    },
+    categories: {
+      objects: "Przedmioty",
+      animals: "Zwierzęta",
+      people: "Ludzie",
+      colors: "Kolory",
     },
   },
   en: {
@@ -28,6 +50,8 @@ const translations = {
     subtitle:
       "Flow: click the word to reveal image + caption. Click again to move to the next word.",
     languageLabel: "Language:",
+    categoryLabel: "Categories:",
+    allCategoriesLabel: "All",
     words: {
       scorpion: "scorpion",
       moon: "moon",
@@ -45,6 +69,24 @@ const translations = {
       sun: "sun",
       car: "car",
       panda: "panda",
+      shield: "shield",
+      ball: "ball",
+      guitar: "guitar",
+      lion: "lion",
+      spider: "spider",
+      pirate: "pirate",
+      red: "red",
+      blue: "blue",
+      green: "green",
+      yellow: "yellow",
+      black: "black",
+      white: "white",
+    },
+    categories: {
+      objects: "Objects",
+      animals: "Animals",
+      people: "People",
+      colors: "Colors",
     },
   },
   es: {
@@ -52,6 +94,8 @@ const translations = {
     subtitle:
       "Flujo: haz clic en la palabra para mostrar imagen y texto. Vuelve a hacer clic para la siguiente palabra.",
     languageLabel: "Idioma:",
+    categoryLabel: "Categorías:",
+    allCategoriesLabel: "Todas",
     words: {
       scorpion: "escorpión",
       moon: "luna",
@@ -69,11 +113,51 @@ const translations = {
       sun: "sol",
       car: "coche",
       panda: "panda",
+      shield: "escudo",
+      ball: "pelota",
+      guitar: "guitarra",
+      lion: "león",
+      spider: "araña",
+      pirate: "pirata",
+      red: "rojo",
+      blue: "azul",
+      green: "verde",
+      yellow: "amarillo",
+      black: "negro",
+      white: "blanco",
+    },
+    categories: {
+      objects: "Objetos",
+      animals: "Animales",
+      people: "Personas",
+      colors: "Colores",
     },
   },
 };
 
 const entries = [
+  { key: "snake", imagePath: "assets/images/snake.svg", categories: ["animals"] },
+  { key: "sword", imagePath: "assets/images/sword.svg", categories: ["objects"] },
+  { key: "dragon", imagePath: "assets/images/dragon.svg", categories: ["animals"] },
+  { key: "dog", imagePath: "assets/images/dog.svg", categories: ["animals"] },
+  { key: "cat", imagePath: "assets/images/cat.svg", categories: ["animals"] },
+  { key: "turtle", imagePath: "assets/images/turtle.svg", categories: ["animals"] },
+  { key: "house", imagePath: "assets/images/house.svg", categories: ["objects"] },
+  { key: "sun", imagePath: "assets/images/sun.svg", categories: ["objects"] },
+  { key: "car", imagePath: "assets/images/car.svg", categories: ["objects"] },
+  { key: "panda", imagePath: "assets/images/panda.svg", categories: ["animals"] },
+  { key: "shield", imagePath: "assets/images/shield.svg", categories: ["objects"] },
+  { key: "ball", imagePath: "assets/images/ball.svg", categories: ["objects"] },
+  { key: "guitar", imagePath: "assets/images/guitar.svg", categories: ["objects"] },
+  { key: "lion", imagePath: "assets/images/lion.svg", categories: ["animals"] },
+  { key: "spider", imagePath: "assets/images/spider.svg", categories: ["animals"] },
+  { key: "pirate", imagePath: "assets/images/pirate.svg", categories: ["people"] },
+  { key: "red", imagePath: "assets/images/red.svg", categories: ["colors"] },
+  { key: "blue", imagePath: "assets/images/blue.svg", categories: ["colors"] },
+  { key: "green", imagePath: "assets/images/green.svg", categories: ["colors"] },
+  { key: "yellow", imagePath: "assets/images/yellow.svg", categories: ["colors"] },
+  { key: "black", imagePath: "assets/images/black.svg", categories: ["colors"] },
+  { key: "white", imagePath: "assets/images/white.svg", categories: ["colors"] },
   { key: "scorpion", imagePath: "assets/images/scorpion.svg" },
   { key: "moon", imagePath: "assets/images/moon.svg" },
   { key: "banana", imagePath: "assets/images/banana.svg" },
@@ -96,6 +180,10 @@ const languageSelect = document.querySelector("#language-select");
 const titleNode = document.querySelector("#title");
 const subtitleNode = document.querySelector("#subtitle");
 const languageLabelNode = document.querySelector("#language-label");
+const categoryLabelNode = document.querySelector("#category-label");
+const allCategoriesLabelNode = document.querySelector("#all-categories-label");
+const categoriesNode = document.querySelector("#categories");
+const allCategoriesCheckbox = document.querySelector("#category-all");
 const wordListNode = document.querySelector("#word-list");
 const template = document.querySelector("#word-card-template");
 
@@ -103,9 +191,24 @@ let currentLanguage = "pl";
 let currentEntry = null;
 let isFigureVisible = false;
 let unseenEntries = [];
+let selectedCategories = new Set(categories);
+
+function getFilteredEntries() {
+  return entries.filter((entry) =>
+    entry.categories.some((category) => selectedCategories.has(category)),
+  );
+}
 
 function prepareFlow() {
-  unseenEntries = [...entries];
+  const filteredEntries = getFilteredEntries();
+  unseenEntries = [...filteredEntries];
+
+  if (unseenEntries.length === 0) {
+    selectedCategories = new Set(categories);
+    syncCategoryInputs();
+    unseenEntries = [...entries];
+  }
+
   currentEntry = null;
   isFigureVisible = false;
   drawNextEntry();
@@ -113,7 +216,7 @@ function prepareFlow() {
 
 function drawNextEntry() {
   if (unseenEntries.length === 0) {
-    unseenEntries = [...entries];
+    unseenEntries = [...getFilteredEntries()];
   }
 
   const randomIndex = Math.floor(Math.random() * unseenEntries.length);
@@ -160,6 +263,54 @@ function renderWordCard() {
   wordListNode.append(card);
 }
 
+function buildCategoryControls() {
+  categoriesNode.innerHTML = "";
+  const langCategories = translations[currentLanguage].categories;
+
+  categories.forEach((category) => {
+    const id = `category-${category}`;
+    const wrapper = document.createElement("label");
+    wrapper.className = "category-option";
+
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.value = category;
+    input.id = id;
+    input.checked = selectedCategories.has(category);
+
+    input.addEventListener("change", () => {
+      if (input.checked) {
+        selectedCategories.add(category);
+      } else {
+        selectedCategories.delete(category);
+      }
+
+      if (selectedCategories.size === 0) {
+        selectedCategories = new Set(categories);
+      }
+
+      syncCategoryInputs();
+      prepareFlow();
+      renderWordCard();
+    });
+
+    const text = document.createElement("span");
+    text.textContent = langCategories[category];
+
+    wrapper.append(input, text);
+    categoriesNode.append(wrapper);
+  });
+}
+
+function syncCategoryInputs() {
+  allCategoriesCheckbox.checked = selectedCategories.size === categories.length;
+
+  const categoryInputs = categoriesNode.querySelectorAll('input[type="checkbox"]');
+  categoryInputs.forEach((input) => {
+    input.checked = selectedCategories.has(input.value);
+  });
+}
+
 function renderInterface() {
   const lang = translations[currentLanguage];
   document.documentElement.lang = currentLanguage;
@@ -168,7 +319,11 @@ function renderInterface() {
   titleNode.textContent = lang.pageTitle;
   subtitleNode.textContent = lang.subtitle;
   languageLabelNode.textContent = lang.languageLabel;
+  categoryLabelNode.textContent = lang.categoryLabel;
+  allCategoriesLabelNode.textContent = lang.allCategoriesLabel;
 
+  buildCategoryControls();
+  syncCategoryInputs();
   prepareFlow();
   renderWordCard();
 }
@@ -176,6 +331,18 @@ function renderInterface() {
 languageSelect.addEventListener("change", (event) => {
   currentLanguage = event.target.value;
   renderInterface();
+});
+
+allCategoriesCheckbox.addEventListener("change", () => {
+  if (!allCategoriesCheckbox.checked) {
+    syncCategoryInputs();
+    return;
+  }
+
+  selectedCategories = new Set(categories);
+  syncCategoryInputs();
+  prepareFlow();
+  renderWordCard();
 });
 
 renderInterface();
