@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Piłka">
+  <rect width="800" height="500" fill="#f8fafc"/>
+  <circle cx="400" cy="250" r="170" fill="#fde68a" stroke="#f59e0b" stroke-width="12"/>
+  <path d="M250 250 H550 M400 80 V420 M290 140 C360 190 440 190 510 140 M290 360 C360 310 440 310 510 360" stroke="#b45309" stroke-width="10" fill="none"/>
+</svg>

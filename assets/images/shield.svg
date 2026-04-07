@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Tarcza">
+  <rect width="800" height="500" fill="#f8fafc"/>
+  <path d="M400 70 L560 130 L530 290 C510 360 460 415 400 450 C340 415 290 360 270 290 L240 130 Z" fill="#60a5fa" stroke="#1e3a8a" stroke-width="14"/>
+  <path d="M400 130 L500 168 L480 280 C466 332 438 373 400 400 C362 373 334 332 320 280 L300 168 Z" fill="#dbeafe"/>
+</svg>

@@ -13,13 +13,24 @@
         <p id="subtitle"></p>
       </header>
 
-      <section class="controls" aria-label="Wybór języka">
-        <label for="language-select" id="language-label"></label>
-        <select id="language-select">
-          <option value="pl">Polski</option>
-          <option value="en">English</option>
-          <option value="es">Español</option>
-        </select>
+      <section class="controls" aria-label="Ustawienia">
+        <div class="control-group">
+          <label for="language-select" id="language-label"></label>
+          <select id="language-select">
+            <option value="pl">Polski</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+
+        <fieldset class="category-fieldset">
+          <legend id="category-label"></legend>
+          <label class="category-option">
+            <input type="checkbox" id="category-all" checked />
+            <span id="all-categories-label"></span>
+          </label>
+          <div id="categories" class="categories-list"></div>
+        </fieldset>
       </section>
 
       <section class="words" id="word-list" aria-label="Lista słów"></section>

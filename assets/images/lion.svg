@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Lew">
+  <rect width="800" height="500" fill="#f8fafc"/>
+  <circle cx="400" cy="245" r="145" fill="#92400e"/>
+  <circle cx="400" cy="245" r="95" fill="#fcd34d"/>
+  <circle cx="360" cy="230" r="10" fill="#1f2937"/>
+  <circle cx="440" cy="230" r="10" fill="#1f2937"/>
+  <path d="M380 280 Q400 300 420 280" stroke="#1f2937" stroke-width="8" fill="none"/>
+  <circle cx="400" cy="260" r="9" fill="#b45309"/>
+</svg>
