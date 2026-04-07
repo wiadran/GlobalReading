@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Gitara">
+  <rect width="800" height="500" fill="#f8fafc"/>
+  <ellipse cx="350" cy="300" rx="130" ry="110" fill="#f59e0b"/>
+  <ellipse cx="460" cy="300" rx="120" ry="95" fill="#fbbf24"/>
+  <circle cx="430" cy="300" r="28" fill="#111827"/>
+  <rect x="455" y="145" width="210" height="30" rx="10" fill="#92400e"/>
+  <rect x="650" y="138" width="42" height="44" rx="8" fill="#78350f"/>
+  <path d="M470 160 H682 M470 168 H682 M470 176 H682" stroke="#e5e7eb" stroke-width="2"/>
+</svg>
