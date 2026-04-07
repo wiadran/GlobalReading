@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Drzewo">
+  <rect width="320" height="180" fill="#d9f99d"/>
+  <rect x="146" y="95" width="28" height="55" rx="4" fill="#92400e"/>
+  <circle cx="160" cy="72" r="38" fill="#22c55e"/>
+  <circle cx="128" cy="82" r="25" fill="#16a34a"/>
+  <circle cx="192" cy="82" r="25" fill="#16a34a"/>
+  <ellipse cx="160" cy="156" rx="90" ry="16" fill="#86efac"/>
+</svg>
