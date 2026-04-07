@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Duch">
+  <rect width="320" height="180" fill="#dbeafe"/>
+  <path d="M160 38c-30 0-54 24-54 54v50l18-12 18 12 18-12 18 12 18-12 18 12V92c0-30-24-54-54-54z" fill="#f8fafc"/>
+  <circle cx="142" cy="90" r="6" fill="#0f172a"/>
+  <circle cx="178" cy="90" r="6" fill="#0f172a"/>
+  <ellipse cx="160" cy="108" rx="10" ry="6" fill="#93c5fd"/>
+</svg>
